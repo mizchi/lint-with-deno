@@ -22,6 +22,5 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: yarn.lock
       - run: yarn install
-      - run: yarn test
       - run: yarn lint
       - run: deno fmt -c deno.json --check
