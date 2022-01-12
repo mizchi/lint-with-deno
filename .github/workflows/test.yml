@@ -1,0 +1,27 @@
+name: test
+
+on:
+  push:
+
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: Ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.17.1
+      - name: Use Node.js 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: 'yarn'
+          cache-dependency-path: yarn.lock
+      - run: yarn install
+      - run: yarn test
+      - run: yarn lint
+      - run: deno fmt -c deno.json --check

@@ -1,0 +1,10 @@
+{
+  "name": "lint-with-deno",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "format": "deno fmt -c deno.jsonc",
+    "lint": "deno lint -c deno.jsonc"
+  }
+}
